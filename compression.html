@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Compression</h1>
+
+<h4> Lecture 1
+<button type="button"
+onclick='document.getElementById("demo").innerHTML = "<h3>Source text</h3><p>The original data, string of characters S from the source alphabets. </p> <h3>Coded text</h3> <p>The encoded data, string of characters C from the coded alphabet.</p> <h3>Encoding</h3> <p>An algorithm mapping source texts to coded texts.</p>  <h3>Decoding</h3> <p>An algorithm mapping coded texts back to their original source text.</p>"'>Basic concepts of Data storage and transmission!</button>
+</h4>
+
+<h4> Lecture 2
+<button type="button"
+onclick='document.getElementById("demo").innerHTML = "<h3>Logical vs. Physical</h3><h4>Logical Compression:</h4><p>Uses the meaning of the data and only applies to a certain domain (eg: sound recordings)</p><h4>Physical Compression:</h4><p>Only knows the physical bits in the data, not the meaning behind them</p><h3>Lossy vs. Lossless</h3><h4>Lossy Compression:</h4><p>Achieves better compression ratios, but the decoding is approximate, the exact source text S is not recoverable</p><h4>Lossless Compression:</h4><p>Always decodes S exactly</p>"'>Types of data compression</button>
+</h4>
+
+<h4> Lecture 3
+<button type="button"
+onclick='document.getElementById("demo").innerHTML = "<p>RLE is a variable-length code with a fixed decoding dictionary, but one which is not explicitly stored.</p>"'>Encoding Method1: Run Length Encoding(RLE)</button>
+</h4>
+<p id="demo">
+
+</body>
+</html> 
