@@ -16,9 +16,43 @@ onclick='document.getElementById("demo").innerHTML = "<h3>Logical vs. Physical</
 
 <h4> Lecture 3
 <button type="button"
-onclick='document.getElementById("demo").innerHTML = "<p>RLE is a variable-length code with a fixed decoding dictionary, but one which is not explicitly stored.</p>"'>Encoding Method1: Run Length Encoding(RLE)</button>
+onclick='document.getElementById("demo").innerHTML = "<p>RLE is a variable-length code with a fixed decoding dictionary, but one which is not explicitly stored. Source alphabet and coded alphabet are both binary, encoding of run-length k must be prefix-free.(Run length is same character repeated many times in a row.)</p><h3>Algorithm</h3><p>We will encode the binary length of k in unary, followed by the actual value of k in binary.</p><p>Encoding has two parts: <br/>logk copies of 0 followed by the binary representation of k"'>Encoding Method1: Run Length Encoding(RLE)</button>
+
+<button type="button"
+onclick='document.getElementById("demo").innerHTML = "S=11111110010000000000000000000011111111111<br/>C=1<br/>k=7 =>logk=2, 2 copies of 0<br/>C=100111<br/>k=2<br/>C=100111010<br/>k=1<br/>C=1001110101<br/>k=20<br/>C=1001110101000010100<br/>k=11<br/>C=10011101010000101000001011<br/>Compression ratio: 26/41 = 63%</p>"'>Example</button>
+
+
+<button type="button"
+onclick='document.getElementById("demo").style.display =  "block"'>Quiz Time</button>
 </h4>
+
+<div id="demo" style="display:none"><p>What is the encoding for S=1100011?</p>
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+</div>
+<script>
+function myFunction() {
+    var x, text;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if (isNaN(x) || x != 1010011010) {
+        text = "Incorrect answer";
+    } else {
+        text = "Correct!";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+
+
+
 <p id="demo">
+
 
 </body>
 </html> 
