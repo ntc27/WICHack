@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Iteration/Loops</h1>
+    <p>Loops are handy, if you want to run the same code over and over again, each time with a different value.<br>Loops can execute a block of code as long as a specified condition is true.<br>Click on the buttons below to find out more!</p>
+
+    <button id="forButton" type="button" onclick="forLoop()">For loops</button>
+    <button id="whileButton" type="button" onclick="whileLoop()">While loops</button>
+
+    
+    <div id="forLoop" style="display:none">
+    	<h2>The For Loop</h2>
+    	<p>The for loop is often the tool you will use when you want to create a loop.</p>
+    	<h3>Syntax</h3>
+    	<p>for (statement 1; statement 2; statement 3) {<br>code block to be executed<br>}<br>Statement 1 is executed before the loop (the code block) starts.<br>Statement 2 defines the condition for running the loop (the code block).<br>Statement 3 is executed each time after the loop (the code block) has been executed.</p>
+    	<h3>Example</h3>
+    	<p>for (i = 0; i < 5; i++) {<br>text += "The number is " + i + "<br>";<br>}<br>From the example above, you can read:<br>Statement 1 sets a variable before the loop starts (var i = 0).<br>Statement 2 defines the condition for the loop to run (i must be less than 5).<br>Statement 3 increases a value (i++) each time the code block in the loop has been executed.</p>
+    </div>
+
+
+    <div id="whileLoop" style="display:none">
+      <h2>The While Loop</h2>
+    	<p>The while loop loops through a block of code as long as a specified condition is true.</p>
+    	<h3>Syntax</h3>
+    	<p>while (condition) {<br>code block to be executed<br>}</p>
+    	<h3>Example</h3>
+    	<p>In the following example, the code in the loop will run, over and over again, as long as a variable (i) is less than 10:<br>while (i < 10) {<br>text += "The number is " + i;<br>i++;<br>}</p>
+    	<p>If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser!!!</p>
+    </div>
+    
+    <button id="backButton" type="button" onclick="back()" style="display:none">Done!</button>
+   
+    
+    <script type="text/javascript">
+      function forLoop() {
+    		document.getElementById("whileLoop").style.display = "none"
+      	document.getElementById("forButton").style.color = "grey";
+      	document.getElementById("forLoop").style.display = "block";
+      	document.getElementById("backButton").style.display = "block";
+      }
+
+    	function whileLoop() {
+      	document.getElementById("forLoop").style.display = "none";
+    		document.getElementById("whileButton").style.color = "grey";
+    		document.getElementById("whileLoop").style.display = "block";
+    		document.getElementById("backButton").style.display = "block";
+    	}
+
+    	function back() {
+      	document.getElementById("forLoop").style.display = "none";
+    		document.getElementById("whileLoop").style.display = "none";
+    		document.getElementById("backButton").style.display = "none";
+    	}
+
+     </script>
+  </body>
+</html>
