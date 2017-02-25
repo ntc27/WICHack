@@ -6,27 +6,28 @@
 
 <h4> Lecture 1
 <button type="button"
-onclick='document.getElementById("demo").innerHTML = "<h3>Source text</h3><p>The original data, string of characters S from the source alphabets. </p> <h3>Coded text</h3> <p>The encoded data, string of characters C from the coded alphabet.</p> <h3>Encoding</h3> <p>An algorithm mapping source texts to coded texts.</p>  <h3>Decoding</h3> <p>An algorithm mapping coded texts back to their original source text.</p>"'>Basic concepts of Data storage and transmission!</button>
+onclick='document.getElementById("first").style.display =  "none";document.getElementById("demo").innerHTML = "<h3>Source text</h3><p>The original data, string of characters S from the source alphabets. </p> <h3>Coded text</h3> <p>The encoded data, string of characters C from the coded alphabet.</p> <h3>Encoding</h3> <p>An algorithm mapping source texts to coded texts.</p>  <h3>Decoding</h3> <p>An algorithm mapping coded texts back to their original source text.</p>"'>Basic concepts of Data storage and transmission!</button>
 </h4>
 
 <h4> Lecture 2
 <button type="button"
-onclick='document.getElementById("demo").innerHTML = "<h3>Logical vs. Physical</h3><h4>Logical Compression:</h4><p>Uses the meaning of the data and only applies to a certain domain (eg: sound recordings)</p><h4>Physical Compression:</h4><p>Only knows the physical bits in the data, not the meaning behind them</p><h3>Lossy vs. Lossless</h3><h4>Lossy Compression:</h4><p>Achieves better compression ratios, but the decoding is approximate, the exact source text S is not recoverable</p><h4>Lossless Compression:</h4><p>Always decodes S exactly</p>"'>Types of data compression</button>
+onclick='document.getElementById("first").style.display =  "none";document.getElementById("demo").innerHTML = "<h3>Logical vs. Physical</h3><h4>Logical Compression:</h4><p>Uses the meaning of the data and only applies to a certain domain (eg: sound recordings)</p><h4>Physical Compression:</h4><p>Only knows the physical bits in the data, not the meaning behind them</p><h3>Lossy vs. Lossless</h3><h4>Lossy Compression:</h4><p>Achieves better compression ratios, but the decoding is approximate, the exact source text S is not recoverable</p><h4>Lossless Compression:</h4><p>Always decodes S exactly</p>"'>Types of data compression</button>
 </h4>
 
 <h4> Lecture 3
 <button type="button"
-onclick='document.getElementById("demo").innerHTML = "<p>RLE is a variable-length code with a fixed decoding dictionary, but one which is not explicitly stored. Source alphabet and coded alphabet are both binary, encoding of run-length k must be prefix-free.(Run length is same character repeated many times in a row.)</p><h3>Algorithm</h3><p>We will encode the binary length of k in unary, followed by the actual value of k in binary.</p><p>Encoding has two parts: <br/>logk copies of 0 followed by the binary representation of k"'>Encoding Method1: Run Length Encoding(RLE)</button>
+onclick='document.getElementById("first").style.display =  "none";document.getElementById("demo").innerHTML = "<p>RLE is a variable-length code with a fixed decoding dictionary, but one which is not explicitly stored. Source alphabet and coded alphabet are both binary, encoding of run-length k must be prefix-free.(Run length is same character repeated many times in a row.)</p><h3>Algorithm</h3><p>We will encode the binary length of k in unary, followed by the actual value of k in binary.</p><p>Encoding has two parts: <br/>logk copies of 0 followed by the binary representation of k"'>Encoding Method1: Run Length Encoding(RLE)</button>
 
 <button type="button"
-onclick='document.getElementById("demo").innerHTML = "S=11111110010000000000000000000011111111111<br/>C=1<br/>k=7 =>logk=2, 2 copies of 0<br/>C=100111<br/>k=2<br/>C=100111010<br/>k=1<br/>C=1001110101<br/>k=20<br/>C=1001110101000010100<br/>k=11<br/>C=10011101010000101000001011<br/>Compression ratio: 26/41 = 63%</p>"'>Example</button>
+onclick='document.getElementById("first").style.display =  "none";document.getElementById("demo").innerHTML = "S=11111110010000000000000000000011111111111<br/>C=1<br/>k=7 =>logk=2, 2 copies of 0<br/>C=100111<br/>k=2<br/>C=100111010<br/>k=1<br/>C=1001110101<br/>k=20<br/>C=1001110101000010100<br/>k=11<br/>C=10011101010000101000001011<br/>Compression ratio: 26/41 = 63%</p>"'>Example</button>
 
 
 <button type="button"
-onclick='document.getElementById("demo").style.display =  "block"'>Quiz Time</button>
+onclick='document.getElementById("first").style.display =  "block"; document.getElementById("demo").style.display =  "none"'>Quiz Time</button>
 </h4>
 
-<div id="demo" style="display:none"><p>What is the encoding for S=1100011?</p>
+</h4>
+<div id="first" style="display:none"><p>What is the encoding for S=1100011?</p>
 <input id="numb">
 
 <button type="button" onclick="myFunction()">Submit</button>
@@ -44,6 +45,7 @@ function myFunction() {
     } else {
         text = "Correct!";
     }
+    document.getElementById("demo").style.display =  "block";
     document.getElementById("demo").innerHTML = text;
 }
 </script>
