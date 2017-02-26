@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Webdesign</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+		body{
+			background-color: #e0dfeb;
+			font-family: 'Roboto', sans-serif;
+		}
+		.header{
+			position:fixed;
+			left: -10px;
+			right: -10px;
+			height: 70px;
+			top: 0px;
+			background-color:#353a61;
+		}
+		.logo img{
+			height: 80px;
+			margin-top: -5px;
+			margin-left: 5px;
+		}
+		#body{
+			position: fixed;
+			top: 70px;
+			left: 0px;
+			right: 0px;
+			width: 100%;
+		}
+		.mascot img{
+			height: 400px;
+		}
+		.mascot{
+			margin: 0 auto;
+			margin-top: 70px;
+			width: 400px;
+		}
+		#contain{
+			margin-top: 30px;
+			width: 70%;
+			margin-left:15%;
+			margin-right: 15%;
+			text-align: center;
+		}
+		#ask{
+			color: #353a61;
+			background-color: #ff8086;
+			width: 30px;
+		}
+		#dialogbox span{
+			background-color: #353a61;
+			color: #e0dfeb;
+			font-size: 16pt;
+			padding: 10px 20px 10px 20px;
+		}
+	</style>
+	<script>
+	</script>
+    <meta name="description" content="description">
+
+    <link rel="stylesheet" href="webdesign/css/styles.css">
+</head>
+<body>
+	<div class = "header">
+	<div class = "logo">
+		<img src = "logo.png">
+	</div>
+	</div>
+	<div id = "body">
+    <div class="mascot">
+		<img src = "mascot.png">
+    </div> 
+	<div class = "contain">
+	<div id = "dialogbox" onclick = "document.getElementById('dialogbox').innerHTML = '<span>I can\'t wait to teach you how to code!</span>'"><span>Hello! I am Code-ee the seal dog! Welcome to Codeversation!</span></div>
+	<div id = "ask">?</div>
+	</div>
+
+   <div class="dropdown">
+        <button class="dropbtn">Basic Syntax</button>
+        <div class="dropdown-content">
+         <ul style="list-style-type:none">
+        <div align="right">
+        <li><a href="iteration.html">loops/iteration/recursion</a></li>
+        <li><a href="datastructure.html">data structure</a></li>
+        <li><a href="compression.html">Compression</a></li>
+        <li><a href="algorithm.html">algorithm</a></li>
+        </div>
+    </ul>
+     </div>
+
+    </div>
+    <p> Place Your code here &darr; </p>
+<textarea> rows="4" cols="50" </textarea>
+
+    <div class="run button">
+    <button type="button">RUN</button>
+
+    </div>
+
+    <div class="display button">
+   <button type="button">DISPLAY</button>
+      
+    </div>
+	</div>
+</div>
+</body>
+
+</html>
