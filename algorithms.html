@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Algorithms</h1>
+
+<h4> Lecture 1
+<button type="button"
+onclick='document.getElementById("first").style.display =  "none";document.getElementById("demo").style.display =  "block";document.getElementById("demo").innerHTML = "<h3>\u039F-notation:</h3>f(n) is \u039F(g(n)) if there exist constants c>0 and n0>0 such that 0 <= f(n) <= cg(n) for all n >= n0<h3>	\u03A9-notation:</h3>f(n) is 	\u03A9(g(n)) if there exist constants c>0 and n0>0 such that 0 <= cg(n) <= f(n) for all n >= n0<h3>\u0398-notation:</h3>f(n) is \u0398(g(n)) if there exist constants c1, c2>0 and n0>0 such that 0 <= c1g(n) <= f(n) <= c2g(n) for all n >= n0<h3>o-notation:</h3>f(n) is o(g(n)) if for all constants c>0, there exists a constant n0>0 such that 0 <= f(n) < cg(n) for all n >= n0<h3>\u03C9-notation:</h3>f(n) is \u03C9(g(n)) if there exist constants c>0 and n0>0 such that 0 <= cg(n) <= f(n) for all n >= n0"'>Order Notations</button>
+</h4>
+
+<h4> Lecture 2
+<button type="button"
+onclick='document.getElementById("first").style.display =  "none";document.getElementById("demo").style.display =  "block";document.getElementById("demo").innerHTML = "<h3>Let L be the limit of f(n)/g(n) as n goes to infinite, if</h3>	1. L = 0, then f(n) is o(g(n))<br/>2.  0 < L < g(n), then f(n) is \u0398(g(n))<br/>3.  L=infinite, then f(n) is ω(g(n))"'>Techniques for Order Notations</button>
+</h4>
+
+<h4> Lecture 3
+<button type="button"
+onclick='document.getElementById("first").style.display =  "block"; document.getElementById("demo").style.display = "none"'>Quiz Time</button>
+
+</h4>
+<div id="first" style="display:none"><p>What is f(n) g(n)'s relationship using the technique? <br/> f(n) = n^2 + 27nlogn + 2016  g(n) = n^2logn + 2016 <br/><br/>A. f(n) is o(g(n)) B. f(n) is Θ(g(n)) C. f(n) is ω(g(n))</p>
+<input id="numb1">
+<button type="button" onclick="myFunction1()">Submit</button>
+</div>
+<script>
+function myFunction1() {
+    var x, text;
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb1").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if ( x == "A" || x == "a") {
+        text = "Correct!";
+    } else {
+        text = "Incorrect Answer";
+    }
+    document.getElementById("demo").style.display =  "block";
+    document.getElementById("demo").innerHTML = text;
+}
+</script>
+<p id="demo">
+
+
+</body>
+</html> 
