@@ -29,6 +29,8 @@
 			left: 0px;
 			right: 0px;
 			width: 100%;
+			overflow: auto;
+			height: 100%;
 		}
 		.mascot img{
 			height: 400px;
@@ -38,23 +40,45 @@
 			margin-top: 70px;
 			width: 400px;
 		}
-		#contain{
+		#dialogbox{
 			margin-top: 30px;
 			width: 70%;
 			margin-left:15%;
 			margin-right: 15%;
 			text-align: center;
 		}
-		#ask{
-			color: #353a61;
-			background-color: #ff8086;
-			width: 30px;
-		}
 		#dialogbox span{
 			background-color: #353a61;
 			color: #e0dfeb;
 			font-size: 16pt;
 			padding: 10px 20px 10px 20px;
+		}
+		#questionForm{
+			margin-top: 10px;
+			width: 70%;
+			margin-left:16%;
+			margin-right: 15%;
+			height: 40px;
+		}
+		#questionForm input{
+			color: #353a61;
+			padding-left:30%;
+			height: 40px;
+			width: 65%;
+		}
+		#questionForm img{
+			width: 40px;
+		}
+		#ask{
+			background-color: #ff8086;
+			color: #353a61;
+			padding: 10px 20px 10px 20px;
+			width: 20%;
+			margin-left:38%;
+			margin-right: 40%;
+			margin-top: 20px;
+			text-align: center;
+			
 		}
 	</style>
 	<script>
@@ -73,39 +97,60 @@
     <div class="mascot">
 		<img src = "mascot.png">
     </div> 
-	<div class = "contain">
 	<div id = "dialogbox" onclick = "document.getElementById('dialogbox').innerHTML = '<span>I can\'t wait to teach you how to code!</span>'"><span>Hello! I am Code-ee the seal dog! Welcome to Codeversation!</span></div>
-	<div id = "ask">?</div>
+	<div id = "ask" onclick = "toggle()">Got questions?</div>
+	<div id = "questionForm">
+		<input id = "result" type = "text" placeholder = "Type your question here! Or ask it directly!">
+		<img onclick = "startRecord()" src = "mic.png">
 	</div>
+	<script>
+	
+		var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+		var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+		var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+		
+		var recognition = new SpeechRecognition();
+		var speechRecognitionList = new SpeechGrammarList();
+		recognition.grammars = speechRecognitionList;
+		recognition.lang = 'en-US';
+		recognition.interimResults = false;
+		recognition.maxAlternatives = 1;
 
-   <div class="dropdown">
-        <button class="dropbtn">Basic Syntax</button>
-        <div class="dropdown-content">
-         <ul style="list-style-type:none">
-        <div align="right">
-        <li><a href="iteration.html">loops/iteration/recursion</a></li>
-        <li><a href="datastructure.html">data structure</a></li>
-        <li><a href="compression.html">Compression</a></li>
-        <li><a href="algorithm.html">algorithm</a></li>
-        </div>
-    </ul>
-     </div>
+		function startRecord() {
+		  recognition.start();
+		  console.log('Ready to receive a color command.');
+		}
+		
+		var diagnostic = document.getElementById('result');
+		recognition.onresult = function(event) {
 
-    </div>
-    <p> Place Your code here &darr; </p>
-<textarea> rows="4" cols="50" </textarea>
+		  var last = event.results.length - 1;
+		  var phrase = event.results[last][0].transcript;
 
-    <div class="run button">
-    <button type="button">RUN</button>
+		  diagnostic.value = phrase + '?';
+		  console.log('Confidence: ' + event.results[0][0].confidence);
+		}
 
-    </div>
+		recognition.onspeechend = function() {
+		  recognition.stop();
+		}
 
-    <div class="display button">
-   <button type="button">DISPLAY</button>
-      
-    </div>
-	</div>
-</div>
+		recognition.onnomatch = function(event) {
+		  diagnostic.textContent = "I didn't understand you.";
+		}
+
+		recognition.onerror = function(event) {
+		  diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+		}
+		document.getElementById("questionForm").style.display = "none";
+		
+		function toggle(){
+			if (document.getElementById("questionForm").style.display == "none")
+				document.getElementById("questionForm").style.display = "block";
+			else
+				document.getElementById("questionForm").style.display = "none";
+		}
+	</script>
 </body>
 
 </html>
