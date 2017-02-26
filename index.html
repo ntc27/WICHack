@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Webdesign</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	  <script src="jquery-3.1.1.js"></script>
 	<style>
 		body{
 			background-color: #e0dfeb;
@@ -88,6 +89,7 @@
     <link rel="stylesheet" href="webdesign/css/styles.css">
 </head>
 <body>
+	<div id = "MediaStreamVideo">
 	<div class = "header">
 	<div class = "logo">
 		<img src = "logo.png">
@@ -103,6 +105,10 @@
 		<input id = "result" type = "text" placeholder = "Type your question here! Or ask it directly!">
 		<img onclick = "startRecord()" src = "mic.png">
 	</div>
+	<video id="MediaStreamVideo" width="400" height="300" style="max-width:100%;background:#111;border:1px solid #666;-webkit-filter:sepia(1) saturate(1.5);" autoplay></video>
+<button id="MediaStreamStartButton">Start</button> <button id="MediaStreamStopButton">Stop</button>
+
+
 	<script>
 	
 		var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -151,6 +157,88 @@
 				document.getElementById("questionForm").style.display = "none";
 		}
 	</script>
+	<script>
+var stream;
+var video = document.getElementById('MediaStreamVideo');
+
+navigator.webkitGetUserMedia(
+	{video: true, audio: true}, // Options
+	function(localMediaStream) { // Success
+		stream = localMediaStream;
+		video.src = window.webkitURL.createObjectURL(stream);
+	},
+	function(err) { // Failure
+		alert('getUserMedia failed: Code ' + err.code);
+	}
+);
+(function() {
+	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia);
+	var stream;
+	var video = document.getElementById('MediaStreamVideo');
+	document.getElementById('MediaStreamStartButton').onclick = function() {
+		if (!navigator.getUserMedia) {
+			alert('Sorry, this isn\'t happening for your browser.');
+			return;
+		}
+		navigator.getUserMedia(
+			{video: true, audio: true}, 
+			function(localMediaStream) {
+				stream = localMediaStream;
+				if (video.mozSrcObject !== undefined) {
+					video.mozSrcObject = stream;
+				} else {
+					video.src = (window.URL || window.webkitURL).createObjectURL(stream);
+				}
+				video.play();
+			},
+			function(e) {
+				alert('getUserMedia failed: Code ' + e.code);
+			}
+		);
+	}
+	document.getElementById('MediaStreamStopButton').onclick = function() {
+		if (stream) { stream.stop(); }
+	}
+})();
+$('#cameraInput').on('change', function(e){
+ $data = e.originalEvent.target.files[0];
+  $reader = new FileReader();
+  reader.onload = function(evt){
+  $('#your_img_id').attr('src',evt.target.result);
+  reader.readAsDaraUrl($data);
+});
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    var params {
+"api_key: w2fR_DWoKEJaOdgi9yZKW2W38aklG9tu",
+"api_secret: hn58o9FlKxlCMa-_kEnL3RBEmtxL-PU8",
+"face_tokens: c2fc0ad7c8da3af5a34b9c70ff764da0",
+"return_attributes: 1"
+
+    }
+/*xmlhttp.setRequestHeader("api_key: w2fR_DWoKEJaOdgi9yZKW2W38aklG9tu");
+xmlhttp.setRequestHeader("api_secret","hn58o9FlKxlCMa-_kEnL3RBEmtxL-PU8");
+xmlhttp.setRequestHeader("face_tokens","c2fc0ad7c8da3af5a34b9c70ff764da0");
+//xmlhttp.setRequestHeader("return_landmark","6QzJ0FRSPIhXbEziFFPs7JvH1l11111111");
+xmlhttp.setRequestHeader("return_attributes","1");*/
+    xmlHttp.open("POST", "https://api-us.faceplusplus.com/facepp/v3/detect", true); // true for asynchronous 
+    xmlHttp.send(params);
+    var json_data;
+    if (xhr.readyState == 4){
+  if (xhr.status == 200){
+    json_data = xhr.responseText; 
+}
+}
+}
+
+
+</script>
 </body>
 
 </html>
