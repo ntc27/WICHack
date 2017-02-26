@@ -74,3 +74,8 @@ p{
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+#content{
+    margin-top: 0;
+    margin-left: 30%;
+    position:absolute;
+}
