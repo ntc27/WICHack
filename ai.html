@@ -16,19 +16,24 @@ function myFunction1() {
     x = document.getElementById("numb1").value;
 
     // If x is Not a Number or less than one or greater than 10
-    if(x=="hi"){
-    text += "hi"
+    if(x.search("hi") != -1){
+    text += "hi<br/>";
     }
-    if ( x == "algorithm") {
-        text += "An algorithm is an instance of logic written in software by software developers to be effective for the intended target computer(s) to produce output from given (perhaps null) input. ";
+    if (x.search("algorithm") != -1) {
+        text += "An algorithm is an instance of logic written in software by software developers to be effective for the intended target computer(s) to produce output from given (perhaps null) input. <br/>";
     }
-    if(x =="recursion"){
-    text += "Recursion occurs when a thing is defined interms of itself or of its type";
+    if(x.search("recursion") != -1){
+    text += "Recursion occurs when a thing is defined interms of itself or of its type<br/>";
     }
-    if(x == "heap"){
-    text += "Heap is a specialized tree-based data structure that satisfies the heap property";
+    if((x.search("heap") != -1)){
+    text += "Heap is a specialized tree-based data structure that satisfies the heap property<br/>";
     }
-    
+    if((x.search("complexity") != -1)){
+    text += "Time complexity quantifies the amount of time taken by an algorithm to run as a functionof the length of the string representing the input<br/>" ;
+    }
+    if((x.search("compression") != -1)){
+    text += "Compression is the process of encoding digital information using fewer bits<br/>";
+    }
     document.getElementById("answer").innerHTML = text;
 }
 </script>
