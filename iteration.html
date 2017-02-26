@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+  <head>
+  </head>
   <body>
     <h1>Iteration/Loops</h1>
     <p>Loops are handy, if you want to run the same code over and over again, each time with a different value.<br>Loops can execute a block of code as long as a specified condition is true.<br>Click on the buttons below to find out more!</p>
 
+
     <button id="forButton" type="button" onclick="forLoop()">For loops</button>
     <button id="whileButton" type="button" onclick="whileLoop()">While loops</button>
-
+    <button type="button" onclick='document.getElementById("quiz").style.display = "block"'>Quiz</button>
     
+
     <div id="forLoop" style="display:none">
     	<h2>The For Loop</h2>
     	<p>The for loop is often the tool you will use when you want to create a loop.</p>
@@ -28,15 +32,34 @@
     	<p>If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser!!!</p>
     </div>
     
-    <button id="backButton" type="button" onclick="back()" style="display:none">Done!</button>
-   
+
+    <div id="quiz" style="display:none">
+      <h3>Question 1</h3>
+      <p>Make the loop start counting from 5. Count up to (including) 50, and count only every fifth number.<br><br>&lt!DOCTYPE HTML&gt<br>&lthtml&gt<br>&ltbody&gt<br>&ltp id="demo"&gt&lt/p&gt<br>&ltscript&gt
+			</p>
+      <textarea id="exe1" rows="15" cols="80">
+var i;
+for (i = 0; i < 10; i++) {
+document.getElementById("demo").innerHTML += i + "<br>";
+}
+     </textarea>
+     <p>&lt/script&gt<br>&lt/body&gt<br>&lt/html&gt</p>
+     <p id="demo"></p>
+    	<p id="result1">Hit the button below when you are done!</p>    	
+      <button type="button" onclick="exe1()">Nailed it!</button>
+      <button type="button" onclick="answer1()">Show Answer</button>
+    </div>
+
+    
     
     <script type="text/javascript">
+
       function forLoop() {
-    		document.getElementById("whileLoop").style.display = "none"
+    		document.getElementById("whileLoop").style.display = "none";
       	document.getElementById("forButton").style.color = "grey";
       	document.getElementById("forLoop").style.display = "block";
       	document.getElementById("backButton").style.display = "block";
+      	set1 = 1;
       }
 
     	function whileLoop() {
@@ -44,6 +67,7 @@
     		document.getElementById("whileButton").style.color = "grey";
     		document.getElementById("whileLoop").style.display = "block";
     		document.getElementById("backButton").style.display = "block";
+    		set2 = 1;
     	}
 
     	function back() {
@@ -52,6 +76,27 @@
     		document.getElementById("backButton").style.display = "none";
     	}
 
-     </script>
+    	function exe1() {
+    		var exe1 = document.getElementById("exe1").value;
+    		eval(exe1);
+    		var answer = "5<br>10<br>15<br>20<br>25<br>30<br>35<br>40<br>45<br>50<br>";
+        if (document.getElementById("demo").innerHTML != answer) {
+        	document.getElementById("result1").innerHTML = "Sorry, your code is incorrect. Please try again.";
+        	document.getElementById("result1").style.color = red;
+        } else {
+        	document.getElementById("result1").innerHTML = "Congratulations! You nailed it!";
+        	document.getElementById("quiz2").style.display = "block";
+        }
+    	}
+
+    	function answer1() {
+    		document.getElementById("exe1").value = 'var i;\nfor (i = 5; i <= 50; i = i + 5) {\ndocument.getElementById("demo").innerHTML += i + "<br>";\n}';}
+
+
+
+      
+
+    </script>
+    
   </body>
 </html>
