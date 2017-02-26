@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  </head>
+  <body>
+  	<h1>JavaScript Arrays</h1>
+  	<p>JavaScript arrays are used to store multiple values in a single variable.<br>Arrays are a special kind of objects, with numbered indexes.</p>
+  	<button id="tellme" type="button" onclick="tellMe()">Sounds fun. Tell me more!</button>
+
+
+  	<div id="teaching" style="display:none">
+      <h2>Syntax:</h2>
+   	  <p>var array-name = [item1, item2, ...];</p>
+  	  <h3>Example</h3>
+  	  <p>var cars = ["Saab", "Volvo", "BMW"];</p>
+  	  <h2>Access the Elements of an Array</h2>
+  	  <p>You refer to an array element by referring to the index number.<br>[0] is the first element in an array. [1] is the second. Array indexes start with 0. In the previous example, cars[0] returns "Saab".</p>
+  	  <h3>Example</h3>
+  	  <p>var cars = ["Saab", "Volvo", "BMW"];<br>document.getElementById("demo").innerHTML = cars[0];</p>
+  	  <h2>Access the Full Array</h2>
+  	  <p>With JavaScript, the full array can be accessed by referring to the array name:</p>
+  	  <h3>Example</h3>
+  	  <p>var cars = ["Saab", "Volvo", "BMW"];<br>document.getElementById("demo").innerHTML = cars;</p>
+  	  <h2>Array properties and Methods</h2>
+  	  <p>The real strength of JavaScript arrays are the built-in array properties and methods:<br>cars.length: The length property returns the number of elements. The length property is always one more than the highest array index.<br>cars.sort(): The sort() method sorts arrays alphabetically.</p>
+  	  <h2>Adding Array Elements</h2>
+  	  <p>The easiest way to add a new element to an array is using the push method:</p>
+  	  <h3>Example</h3>
+  	  <p>var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>fruits.push("Lemon");                // adds a new element (Lemon) to the end of fruits<br>New element can also be added to an array using the length property:<br>var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>fruits[2] = "Lemon";      //replaces the original fruits[2] (Apple) with a new element (Lemon)</p>
+  	  <p>However, adding elements with high indexes can create undefined "holes" in an array</p>
+  	  <button type="button" onclick="next()">Looooooping Array Elements &gt&gt</button> 
+    </div>
+
+
+    <div id="looping" style="display:none">
+  	  <h2>Looping Array Elements</h2>
+  	  <p>The best way to loop through an array, is using a "for" loop:</p>
+  	  <h3>Examples</h3>
+  	  <p>var fruits, text, fLen, i;<br>fruits = ["Banana", "Orange", "Apple", "Mango"];<br>fLen = fruits.length;<br>text = "&ltul&gt";<br>for (i = 0; i < fLen; i++) {<br>text += "&ltli&gt" + fruits[i] + "&lt/li&gt";<br>}</p>
+  	  <button type="button" onclick="quiz()">Cool! Let me try!!!</button>
+  	</div>
+
+
+  	<div id="quiz" style="display:none">
+      <h3>Question 1</h3>
+      <p>Complete the code to display the message below:<br>I love Pizza<br>I love Beans<br>I love Tacos<br>I love Fish<br>I love Chicken<br><br>&lt!DOCTYPE html&gt<br>&lthtml&gt<br>&ltbody&gt<br><br>&ltp id="demo"&gt&lt/p&gt<br><br>&ltscript&gt</p>
+      <textarea id="exe1" rows="15" cols="80">
+var text = "";
+var food = ["Pizza", "Beans", "Tacos", "Fish", "Chicken"];
+var i;
+
+for () {
+}
+
+document.getElementById("demo").innerHTML = text;
+     </textarea>
+     <p>&lt/script&gt<br><br>&lt/body&gt<br>&lt/html&gt</p>
+     <p id="demo"></p>
+    	<p id="result1">Hit the button below when you are done!</p>    	
+      <button type="button" onclick="exe1()">Nailed it!</button>
+      <button type="button" onclick="answer1()">Show Answer</button>
+    </div>
+
+
+  <script type="text/javascript">
+  	function tellMe() {
+  		document.getElementById("teaching").style.display = "block";
+  		document.getElementById("looping").style.display = "none";
+  		document.getElementById("tellme").style.color = "grey";
+  		document.getElementById("quiz").style.display = "none";
+  	}
+
+    function next() {
+    	document.getElementById("teaching").style.display = "none";
+    	document.getElementById("looping").style.display = "block";
+    	document.getElementById("tellme").innerHTML = "Back";
+    }
+
+    function quiz() {
+    	document.getElementById("looping").style.display = "none";
+    	document.getElementById("tellme").style.color = "black";
+    	document.getElementById("quiz").style.display = "block";
+    }
+
+    function exe1() {
+    	var exe1 = document.getElementById("exe1").value;
+    	eval(exe1);
+    	var answer = "I love Pizza<br>I love Beans<br>I love Tacos<br>I love Fish<br>I love Chicken<br>";
+        if (document.getElementById("demo").innerHTML == answer) {
+        	document.getElementById("result1").innerHTML = "Congratulations! You nailed it!";
+        	
+        } else {
+        	document.getElementById("result1").innerHTML = "Sorry, your code is incorrect. Please try again.";
+        	document.getElementById("result1").style.color = "red"     	
+        }
+    }
+
+    function answer1() {
+    	document.getElementById("exe1").value = 'var text = "";\nvar food = ["Pizza", "Beans", "Tacos", "Fish", "Chicken"];\nvar i;\n\nfor (i = 0; i < food.length; i++) {\n    text += "I love " + food[i] + "<br>";\n}\n\ndocument.getElementById("demo").innerHTML = text;';
+    } 
+
+  </script>
+  </body>
+</html>
+
+
+

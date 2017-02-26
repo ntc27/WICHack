@@ -6,15 +6,16 @@
     <title>Webdesign</title>
 
     <meta name="description" content="description">
-
+    <script src="jquery-3.1.1.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+   
 </head>
 
 <h1> Welcome To Codeversation!</h1>
 
 
 <body>
-
+<div id = "content"></div>
     <div class="mascot">
 
         <div class="photo"></div>
@@ -29,14 +30,15 @@
         <div class="dropdown-content">
          <ul style="list-style-type:none">
         <div align="right">
-        <li><a href="#loops/iteration/recursion">loops/iteration/recursion</a></li>
-        <li><a href="#data structure">data structure</a></li>
-        <li><a href="#compression">Compression</a></li>
-        <li><a href="#algorithm">algorithm</a></li>
+        <li class = "drop" ><a href="#loops/iteration/recursion">loops/iteration/recursion</a></li>
+        <li class = "drop"><a href="#data structure">data structure</a></li>
+        <li class = "drop"><a href="compression.html">Compression</a></li>
+        <li class = "drop"><a href="#algorithm">algorithm</a></li>
         </div>
     </ul>
      </div>
 </div>
+
 
     </div>
     <p> Place Your code here &darr; </p>
@@ -52,5 +54,15 @@
       
     </div>
 </body>
+ <script>
+    $('.drop a').click(function(e){
+        e.preventDefault();
+         var href = $(this).attr("href");
+    $("#content").load(href, function() {
+        // do something after content has been loaded
+    });
+    })
+
+</script>
 
 </html>
