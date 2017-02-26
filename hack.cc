@@ -68,7 +68,7 @@ int main(){
     cout << "Run length encoding is a compression method which is taught in the compression section" << endl;
   }
   if(find(tokens.begin(), tokens.end(), "order") != tokens.end()){
-    cout << "Order notation is taught in the algorithm section" << endll
+    cout << "Order notation is taught in the algorithm section" << endl;
   }
   if(find(tokens.begin(), tokens.end(), "notation") != tokens.end()){
     cout << "Order notation is taguht in the algorithm section" << endl;
